@@ -6,7 +6,6 @@ class Game{
     this.bombs = new Array();
     this._initializeKeybord();
     this.drawer = drawer;
-    this.drawer.prepareNewGame(this.general_field);
   }
 
   _initializeKeybord(){

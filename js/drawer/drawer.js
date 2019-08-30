@@ -17,34 +17,11 @@ class Drawer{
       this.sprites.defineTile(marks.fire, 3, 24);
   }
 
-  prepareNewGame(general_field){
-    this._const_background = this._createConstBackground(general_field);
-
-  }
-
-  _createConstBackground(general_field){
-    const buffer = document.createElement('canvas');
-    buffer.width = this.tileSize * general_field.width;
-    buffer.height = this.tileSize * general_field.height;
-    const buffer_context = buffer.getContext('2d');
-    for (let y = 0; y < general_field.height; y++){
-      for (let x = 0; x < general_field.width; x++){
-        if (general_field.field[y][x] != marks.destructive)
-        this.sprites.drawTile(general_field.field[y][x], buffer_context, x, y);
-      }
-    }
-    return buffer;
-  }
-
   drawField(general_field){
-    // Drawing const background
-    this.context.drawImage(this._const_background, 0, 0);
-
     // Destructive cells
     for (let y = 0; y < general_field.height; y++){
       for (let x = 0; x < general_field.width; x++){
-        if (general_field.field[y][x] == marks.destructive)
-        this.sprites.drawTile(marks.destructive, this.context, x, y);
+        this.sprites.drawTile(general_field.field[y][x], this.context, x, y);
       }
     }
   }
