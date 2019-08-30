@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Bomberman</title>
+    <link rel="stylesheet" href="styles/index.css">
+  </head>
+  <body>
+    <h1>BOMBERMAN</h1>
+    <!-- End game text. -->
+    <h4 id="end_game_label">...</h4>
+    <section class="main-game">
+      <canvas id="screen" width="480" height="320"></canvas>
+      <aside>
+        <div class="instructions instructions_player2">
+          W - up </br>
+          S - down </br>
+          A - left </br>
+          D - right </br>
+          ShiftLeft - place bomb </br>
+        </div>
+        <div class="instructions instructions_player1">
+            ArrowUp - up </br>
+            ArrowDown - down </br>
+            ArrowLeft - left </br>
+            ArrowRight - right </br>
+            ShiftRight - place bomb </br>
+        </div>
+      </aside>
+    </section>
+    <script src="js/marks.js"></script>
+    <script src="js/drawer/image_loader.js"></script>
+    <script src="js/drawer/sprite_sheet.js"></script>
+    <script src="js/drawer/drawer.js"></script>
+    <script src="js/bomb.js"></script>
+    <script src="js/player.js"></script>
+    <script src="js/general_field.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
