@@ -3,6 +3,7 @@ class GeneralField{
     this.height = h;
     this.width = w;
     this.field = this._generateField();
+    this.bonuses = this._generateBonuses();
     while (!this._fieldIsValid(this.field)){
       console.log('Regenerate');
       this.field = this._generateField();
@@ -17,6 +18,17 @@ class GeneralField{
       return marks.destructive;
     } else{
       return marks.empty;
+    }
+  }
+
+  _randomBonusCell(){
+    let v = Math.random();
+    if (v < 0.05){
+      return marks.bonus_bomb_plus;
+    } else if (v < 0.1){
+      return marks.bonus_speed_plus;
+    } else{
+      return null;
     }
   }
 
@@ -63,5 +75,11 @@ class GeneralField{
     arr[this.height - 2][this.width - 3] = marks.empty;
     arr[this.height - 3][this.width - 2] = marks.empty;
     return arr;
+  }
+
+  _generateBonuses(){
+    return  new Array(this.height).fill(true)
+    .map(row => new Array(this.width).fill(true)
+    .map(cell => this._randomBonusCell()));
   }
 }

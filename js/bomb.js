@@ -8,7 +8,7 @@ class Bomb{
 
   checkState(players, general_field){
     this.timeLeft -= 1;
-    if (this.timeLeft == 50) this._fire(players, general_field.field)
+    if (this.timeLeft == 50) this._fire(players, general_field)
     else if (this.timeLeft == 0){
       this._cleanFire(general_field.field);
       return true;
@@ -16,30 +16,33 @@ class Bomb{
     return false;
   }
 
-  _burnCell(players, field, x, y){
+  _burnCell(players, general_field, x, y){
       players.forEach(player => {if ((player.actualX() == x) && (player.actualY() == y)) player.alive = false});
-      if (field[y][x] != marks.empty){
-        if (field[y][x] == marks.destructive) field[y][x] = marks.fire;
+      if (general_field.field[y][x] != marks.empty){
+        if (general_field.field[y][x] == marks.destructive) general_field.field[y][x] = marks.fire;
         return true;
       }
-      field[y][x] = marks.fire;
+      general_field.field[y][x] = marks.fire;
+      if (general_field.bonuses[y][x] != null){
+        return true;
+      }
       return false;
 
   }
 
-  _fire(players, field){
-    this._burnCell(players, field, this.x, this.y);
+  _fire(players, general_field){
+    this._burnCell(players, general_field, this.x, this.y);
     for (let i = 1; i <= this.power; i++){
-      if (this._burnCell(players, field, this.x + i, this.y)) break;
+      if (this._burnCell(players, general_field, this.x + i, this.y)) break;
     }
     for (let i = 1; i <= this.power; i++){
-      if (this._burnCell(players, field, this.x - i, this.y)) break;
+      if (this._burnCell(players, general_field, this.x - i, this.y)) break;
     }
     for (let i = 1; i <= this.power; i++){
-      if (this._burnCell(players, field, this.x, this.y + i)) break;
+      if (this._burnCell(players, general_field, this.x, this.y + i)) break;
     }
     for (let i = 1; i <= this.power; i++){
-      if (this._burnCell(players, field, this.x, this.y - i)) break;
+      if (this._burnCell(players, general_field, this.x, this.y - i)) break;
     }
   }
 

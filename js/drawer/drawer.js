@@ -15,13 +15,21 @@ class Drawer{
       this.sprites.defineTile(marks.players[1], 4, 27);
       this.sprites.defineTile(marks.bomb, 16, 18);
       this.sprites.defineTile(marks.fire, 3, 24);
+      this.sprites.defineTile(marks.bonus_bomb_plus, 26, 6);
+      this.sprites.defineTile(marks.bonus_speed_plus, 25, 5);
   }
 
   drawField(general_field){
-    // Destructive cells
     for (let y = 0; y < general_field.height; y++){
       for (let x = 0; x < general_field.width; x++){
         this.sprites.drawTile(general_field.field[y][x], this.context, x, y);
+      }
+    }
+    for (let y = 0; y < general_field.height; y++){
+      for (let x = 0; x < general_field.width; x++){
+        if ((general_field.bonuses[y][x] != null) &&
+        (general_field.field[y][x] == marks.empty))
+        this.sprites.drawTile(general_field.bonuses[y][x], this.context, x, y);
       }
     }
   }

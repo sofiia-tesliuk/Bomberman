@@ -26,9 +26,27 @@ class Player{
       if ((direction == 'right') && (general_field.field[this.actualY()][Math.ceil(this.x)] == marks.empty)) this.x += this.speed
       else if ((direction == 'left') && (general_field.field[this.actualY()][Math.floor(this.x)] == marks.empty)) this.x -= this.speed;
     }
+
+    if (general_field.bonuses[this.actualY()][this.actualX()] == marks.bonus_bomb_plus){
+      this._bonus_bomb_plus();
+      general_field.bonuses[this.actualY()][this.actualX()] = null;
+    }
+
+    if (general_field.bonuses[this.actualY()][this.actualX()] == marks.bonus_speed_plus){
+      this._bonus_speed_plus();
+      general_field.bonuses[this.actualY()][this.actualX()] = null;
+    }
   }
 
   placeBomb(){
     return new Bomb(this.actualX(), this.actualY(), this.bombPower);
+  }
+
+  _bonus_bomb_plus(){
+    this.bombPower = Math.min(5, this.bombPower + 1);
+  }
+
+  _bonus_speed_plus(){
+    this.speed = Math.min(0.5, this.speed + 0.05);
   }
 }
