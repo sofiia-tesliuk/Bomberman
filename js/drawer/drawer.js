@@ -8,15 +8,15 @@ class Drawer{
 
   _defineTiles(image){
     this.sprites = new SpriteSheet(image);
-      this.sprites.defineTile(marks.destructive, 0, 0);
-      this.sprites.defineTile(marks.empty, 3, 23);
+      this.sprites.defineTile(marks.destructive, 2, 0);
+      this.sprites.defineTile(marks.empty, 0, 0);
       this.sprites.defineTile(marks.undestructive, 1, 0);
-      this.sprites.defineTile(marks.players[0], 4, 21);
-      this.sprites.defineTile(marks.players[1], 4, 27);
-      this.sprites.defineTile(marks.bomb, 16, 18);
-      this.sprites.defineTile(marks.fire, 3, 24);
-      this.sprites.defineTile(marks.bonus_bomb_plus, 26, 6);
-      this.sprites.defineTile(marks.bonus_speed_plus, 25, 5);
+      this.sprites.defineTile(marks.player_blue, 0, 2);
+      this.sprites.defineTile(marks.player_pink, 2, 2);
+      this.sprites.defineTile(marks.bomb, 0, 1);
+      this.sprites.defineTile(marks.fire, 2, 1);
+      this.sprites.defineTile(marks.bonus_bomb_plus, 1, 1);
+      this.sprites.defineTile(marks.bonus_speed_plus, 1, 2);
   }
 
   drawField(general_field){
@@ -35,9 +35,7 @@ class Drawer{
   }
 
   drawPlayers(players){
-    for (let i = 0; i < players.length; i++){
-      this.sprites.drawTile(marks.players[i], this.context, players[i].x, players[i].y);
-    }
+    players.forEach(player => this.sprites.drawTile(player.name, this.context, player.x, player.y));
   }
 
   drawBombs(bombs){

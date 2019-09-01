@@ -1,5 +1,5 @@
-var fieldHeight = 20;
-var fieldWidth = 30;
+var fieldHeight = 12;
+var fieldWidth = 17;
 
 loadImage("img/tileset.png")
 .then(image => {

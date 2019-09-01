@@ -5,7 +5,7 @@ class Player{
     this.y = y;
     this.bombPower = 1;
     this.speed = 0.15;
-    this.error = 2 * this.speed;
+    this.error = 0.3;
     this.alive = true;
   }
 
@@ -47,6 +47,6 @@ class Player{
   }
 
   _bonus_speed_plus(){
-    this.speed = Math.min(0.5, this.speed + 0.05);
+    this.speed = Math.min(0.5, this.speed + 0.02);
   }
 }

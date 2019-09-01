@@ -1,5 +1,5 @@
 class SpriteSheet {
-    constructor(image, w = 16, h = 16) {
+    constructor(image, w = 32, h = 32) {
         this.image = image;
         this.width = w;
         this.height = h;

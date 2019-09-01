@@ -1,6 +1,7 @@
 class Marks{
   constructor(){
-    this.players = ['player1', 'player2'];
+    this.player_blue = 'player_blue';
+    this.player_pink = 'player_pink';
     this.bomb = 'bomb';
     // General field
     this.empty = 'empty';

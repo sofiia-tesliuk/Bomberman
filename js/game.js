@@ -1,8 +1,8 @@
 class Game{
   constructor(drawer, h, w){
     this.general_field = new GeneralField(h, w);
-    this.players = [new Player('player1', 1, 1),
-                    new Player('player2', this.general_field.width - 2, this.general_field.height - 2)];
+    this.players = [new Player(marks.player_blue, 1, 1),
+                    new Player(marks.player_pink, this.general_field.width - 2, this.general_field.height - 2)];
     this.bombs = new Array();
     this._initializeKeybord();
     this.drawer = drawer;
