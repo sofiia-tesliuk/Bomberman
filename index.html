@@ -8,24 +8,51 @@
   <body>
     <h1>BOMBERMAN</h1>
     <!-- End game text. -->
-    <h4 id="end_game_label">...</h4>
-    <section class="main-game">
-      <canvas id="screen" width="544" height="384"></canvas>
-      <aside>
-        <div class="instructions instructions_player2">
-          W - up </br>
-          S - down </br>
-          A - left </br>
-          D - right </br>
-          ShiftLeft - place bomb </br>
+    <h2 id="end_game_label">...</h2>
+    <section>
+      <aside class="instructions instructions_player1">
+        W - up </br>
+        S - down </br>
+        A - left </br>
+        D - right </br>
+        ShiftLeft - place bomb </br>
+      </aside>
+
+      <div class="main-game">
+        <canvas id="screen" width="544" height="384"></canvas>
+        <div class="players-bar">
+          <div class="player-bar player1-bar">
+            <h3 class=player-bar_player-name>Player1</h3>
+            <div class="player-skill_item">
+              <img src="img/rollers.png">
+              <span class="player-skill_value" id="player1_speed">0</span>
+            </div>
+            <div class="player-skill_item">
+              <img src="img/bomb.png">
+              <span class="player-skill_value" id="player1_bomb-power">0</span>
+            </div>
+          </div>
+
+          <div class="player-bar player2-bar">
+            <h3 class=player-bar_player-name>Player2</h3>
+            <div class="player-skill_item">
+              <img src="img/rollers.png">
+              <span class="player-skill_value" id="player2_speed">0</span>
+            </div>
+            <div class="player-skill_item">
+              <img src="img/bomb.png">
+              <span class="player-skill_value" id="player2_bomb-power">0</span>
+            </div>
+          </div>
         </div>
-        <div class="instructions instructions_player1">
-            ArrowUp - up </br>
-            ArrowDown - down </br>
-            ArrowLeft - left </br>
-            ArrowRight - right </br>
-            ShiftRight - place bomb </br>
-        </div>
+      </div>
+
+      <aside class="instructions instructions_player2">
+          ArrowUp - up </br>
+          ArrowDown - down </br>
+          ArrowLeft - left </br>
+          ArrowRight - right </br>
+          ShiftRight - place bomb </br>
       </aside>
     </section>
     <script src="js/marks.js"></script>

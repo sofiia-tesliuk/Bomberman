@@ -3,10 +3,12 @@ class Player{
     this.name = name;
     this.x = x;
     this.y = y;
-    this.bombPower = 1;
     this.speed = 0.15;
+    this.bombPower = 1;
     this.error = 0.3;
     this.alive = true;
+    this._display_speed();
+    this._display_bomb_power();
   }
 
   actualX(){ return Math.round(this.x);}
@@ -42,11 +44,21 @@ class Player{
     return new Bomb(this.actualX(), this.actualY(), this.bombPower);
   }
 
-  _bonus_bomb_plus(){
-    this.bombPower = Math.min(5, this.bombPower + 1);
-  }
-
   _bonus_speed_plus(){
     this.speed = Math.min(0.5, this.speed + 0.02);
+    this._display_speed();
+  }
+
+  _bonus_bomb_plus(){
+    this.bombPower = Math.min(5, this.bombPower + 1);
+    this._display_bomb_power();
+  }
+
+  _display_speed(){
+    document.getElementById(this.name + "_speed").innerHTML = Math.round(this.speed * 100) / 100;
+  }
+
+  _display_bomb_power(){
+    document.getElementById(this.name + "_bomb-power").innerHTML = Math.round(this.bombPower * 100) / 100;
   }
 }

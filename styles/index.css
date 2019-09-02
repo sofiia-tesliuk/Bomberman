@@ -4,15 +4,31 @@ body{
   align-items: center;
 }
 
-aside{
+section{
   display: flex;
   justify-content: space-around;
   margin-top: 10px;
   margin-bottom: 10px;
+  align-items: center;
 }
 
-h4{
+h2{
   margin: 0;
   padding: 0;
   height: 1rm;
+}
+
+.players-bar, .player-bar, .player-skill_item{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.player-skill_item{
+  margin-left: 15px;
+}
+
+.player-skill_value{
+  font-size: 3rm; 
+  margin-left: 10px;
 }

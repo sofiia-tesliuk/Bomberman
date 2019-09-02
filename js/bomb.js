@@ -24,6 +24,7 @@ class Bomb{
       }
       general_field.field[y][x] = marks.fire;
       if (general_field.bonuses[y][x] != null){
+        general_field.bonuses[y][x] = null;
         return true;
       }
       return false;
