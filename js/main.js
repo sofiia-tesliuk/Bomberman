@@ -7,6 +7,9 @@ loadImage("img/tileset.png")
   var game = new Game(drawer, fieldHeight, fieldWidth);
 
   function update(){
+    if (game.game_over){
+      return; 
+    }
     game.nextIteration();
     requestAnimationFrame(update);
   }

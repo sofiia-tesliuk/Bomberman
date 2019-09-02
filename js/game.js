@@ -6,6 +6,7 @@ class Game{
     this.bombs = new Array();
     this._initializeKeybord();
     this.drawer = drawer;
+    this.game_over = false;
   }
 
   _initializeKeybord(){
@@ -36,5 +37,6 @@ class Game{
   _endGame(){
     if (this.players.length == 1) document.getElementById("end_game_label").innerHTML = `You won, ${this.players[0].name}!`;
     else document.getElementById("end_game_label").innerHTML = 'Game over!';
+    this.game_over = true;
   }
 }
