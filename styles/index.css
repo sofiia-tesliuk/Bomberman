@@ -6,7 +6,7 @@ body{
 
 section{
   display: flex;
-  justify-content: space-around;
+  /* justify-content: space-between; */
   margin-top: 10px;
   margin-bottom: 10px;
   align-items: center;
@@ -18,9 +18,16 @@ h2{
   height: 1rm;
 }
 
+.players-bar{
+  border-radius: 3px;
+  background-color: rgb(240, 240, 240);
+  border-style: solid;
+  border-width: 1px;
+}
+
 .players-bar, .player-bar, .player-skill_item{
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -29,6 +36,31 @@ h2{
 }
 
 .player-skill_value{
-  font-size: 3rm; 
+  font-size: 3rm;
   margin-left: 10px;
+}
+
+.instructions{
+  margin: 20px;
+}
+
+.key{
+  text-align: center;
+  width: 100px;
+  border-radius: 3px;
+  background-color: rgb(240, 240, 240);
+  border-style: solid;
+  border-width: 1px;
+  margin-right: 10px;
+}
+
+.instructions_item{
+  display: flex;
+  margin: 5px;
+}
+
+@media only screen and (max-width: 1036px) {
+    aside {
+        display: none;
+    }
 }
