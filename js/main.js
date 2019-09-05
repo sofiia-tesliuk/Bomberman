@@ -8,11 +8,14 @@ loadImage("img/tileset.png")
 
   function update(){
     if (game.game_over){
-      return; 
+      return;
     }
     game.nextIteration();
     requestAnimationFrame(update);
   }
 
-  update();
+  drawer.loadingWindow(game.general_field);
+  document.addEventListener('keydown', (e) => {
+    if ((e.code === "Enter") && (!game.started)) update();
+  });
 });

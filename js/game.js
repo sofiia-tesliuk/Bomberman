@@ -35,8 +35,8 @@ class Game{
   }
 
   _endGame(){
-    if (this.players.length == 1) document.getElementById("end_game_label").innerHTML = `You won, ${this.players[0].name}!`;
-    else document.getElementById("end_game_label").innerHTML = 'Game over!';
+    if (this.players.length == 1) this.drawer.endGame(`You won, ${this.players[0].name}!`, this.general_field);
+    else this.drawer.endGame('Game over!', this.general_field);
     this.game_over = true;
   }
 }

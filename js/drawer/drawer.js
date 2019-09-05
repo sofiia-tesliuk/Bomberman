@@ -3,6 +3,7 @@ class Drawer{
     this.tileSize = 16;
     this.canvas = document.getElementById("screen");
     this.context = this.canvas.getContext("2d");
+    this.context.font = '48px serif';
     this._defineTiles(image);
   }
 
@@ -40,5 +41,26 @@ class Drawer{
 
   drawBombs(bombs){
     bombs.forEach(bomb => this.sprites.drawTile(marks.bomb, this.context, bomb.x, bomb.y));
+  }
+
+  loadingWindow(general_field){
+    for (let y = 0; y < general_field.height; y++){
+      for (let x = 0; x < general_field.width; x++){
+        this.sprites.drawTile(marks.empty, this.context, x, y);
+      }
+    }
+
+    this.context.fillText("Press 'Enter'", 160, 160);
+    this.context.fillText("to start the game.", 120, 220);
+  }
+
+  endGame(message, general_field){
+    for (let y = 0; y < general_field.height; y++){
+      for (let x = 0; x < general_field.width; x++){
+        this.sprites.drawTile(marks.undestructive, this.context, x, y);
+      }
+    }
+
+    this.context.fillText(message, 120, 190);
   }
 }
